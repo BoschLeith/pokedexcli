@@ -9,9 +9,10 @@ import (
 
 func startRepl() {
 	scanner := bufio.NewScanner(os.Stdin)
+	fmt.Println("Welcome to the Pokedex!")
 
 	for {
-		fmt.Print(">> ")
+		fmt.Print("pokedex >")
 
 		scanner.Scan()
 		text := scanner.Text()
@@ -50,6 +51,11 @@ func getCommands() map[string]cliCommand {
 			name:        "exit",
 			description: "Exits Pokedex",
 			callback:    callbackExit,
+		},
+		"map": {
+			name:        "map",
+			description: "Lists some location areas",
+			callback:    callbackMap,
 		},
 	}
 }
